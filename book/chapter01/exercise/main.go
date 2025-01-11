@@ -27,20 +27,22 @@ func main() {
 			fast := measureExecutionTime(exercise03_fast)
 			fmt.Printf("Execution time (%s): %s\n", "slow", slow)
 			fmt.Printf("Execution time (%s): %s\n", "fast", fast)
+		case 4:
+			exercise04()
 		default:
-			fmt.Println("Invalid exercise number. Please choose a number between 1 and 3.")
+			fmt.Println("Invalid exercise number. Please choose a number between 1 and 4.")
 		}
 	}
 }
 
 func chooseExercise(reader *bufio.Reader) int {
-	fmt.Print("Choose a exercise number [1-3] to run or type 0 to exit: ")
+	fmt.Print("Choose a exercise number [1-4] to run or type 0 to exit: ")
 	input, err := reader.ReadString('\n')
 	throw(err, "An error occurred while reading the input.")
 	input = strings.TrimSpace(input)
 	exerciseNumber, err := strconv.Atoi(input)
 	if err != nil {
-		fmt.Println("Invalid input. Please enter a number between 1 and 3.")
+		fmt.Println("Invalid input. Please enter a number between 1 and 4.")
 		return chooseExercise(reader)
 	}
 	return exerciseNumber
